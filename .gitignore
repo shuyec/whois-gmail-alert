@@ -131,3 +131,4 @@ dmypy.json
 # Custom
 **/whois_venv
 config.ini
+domains.txt
