@@ -1,0 +1,6 @@
+[account]
+gmail_user = your_gmail_user@gmail.com
+app_password = your_google_app_password
+
+[settings]
+timer = 300
