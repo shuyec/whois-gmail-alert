@@ -132,3 +132,4 @@ dmypy.json
 **/whois_venv
 config.ini
 domains.txt
+start.bat
