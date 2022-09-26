@@ -11,5 +11,6 @@ Python script that sends an email to yourself when a domain in the wish list doe
 3. Create an [app password](https://support.google.com/accounts/answer/185833?hl=en) for your Google account and copy it to `config.ini`
 
 ## Notes
-* The script is in an infinite while loop, so it needs to be stopped manually.
+* The script `with_timer.py` is in an infinite while loop, so it needs to be stopped manually.
 * The timer between the checks can be changed in the `config.ini` file. It is 5 minutes (300 seconds) by default.
+* The script `without_timer.py` runs it once, so it needs something like Windows 10 Task Scheduler to automatically run it multiple times.
