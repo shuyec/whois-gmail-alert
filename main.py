@@ -9,9 +9,10 @@ def main():
     timer = int(config["settings"]["timer"])
     gmail_user = config["account"]["gmail_user"]
     gmail_app_password = config["account"]["app_password"]
-
-    if gmail_user != "your_gmail_user@gmail.com" and gmail_app_password != "your_google_app_password":
+    
+    if gmail_user != "your_gmail_user@example.com" and gmail_app_password != "your_google_app_password":
         while infinite:
+            print("Checking domains...")
             msg = EmailMessage() 
             msg['From'] = gmail_user
             msg["To"] = gmail_user
@@ -29,10 +30,7 @@ def main():
                     whois.whois(domain)
                 except:
                     expired_domains.append(domain)
-                    msg_content = ( f"{msg_content}"
-                                    f"- {domain}"
-                                    "\n"
-                                )
+                    msg_content = msg_content + f"- {domain}\n"
             if expired_domains:
                 msg.set_content(msg_content)
                 try:
@@ -41,10 +39,11 @@ def main():
                     server.login(gmail_user, gmail_app_password)
                     server.send_message(msg)
                     server.close()
-
+                    print(expired_domains)
                     print('Email sent!')
                 except Exception as exception:
                     print(f"Error: {exception}!\n\n")
+            print(f"Done. {len(expired_domains)} domains expired.\n")
             time.sleep(timer)
 
     else:
