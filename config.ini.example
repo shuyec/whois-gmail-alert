@@ -1,5 +1,5 @@
 [account]
-gmail_user = your_gmail_user@gmail.com
+gmail_user = your_gmail_user@example.com
 app_password = your_google_app_password
 
 [settings]
