@@ -9,10 +9,10 @@ def main():
     timer = int(config["settings"]["timer"])
     gmail_user = config["account"]["gmail_user"]
     gmail_app_password = config["account"]["app_password"]
-    
+
     if gmail_user != "your_gmail_user@example.com" and gmail_app_password != "your_google_app_password":
+        print("Checking domains...", end="", flush=True)
         while infinite:
-            print("Checking domains...")
             msg = EmailMessage() 
             msg['From'] = gmail_user
             msg["To"] = gmail_user
@@ -43,8 +43,13 @@ def main():
                     print('Email sent!')
                 except Exception as exception:
                     print(f"Error: {exception}!\n\n")
-            print(f"Done. {len(expired_domains)} domains expired.\n")
-            time.sleep(timer)
+            print(f" Done. {len(expired_domains)} domains expired.")
+
+            for i in range(timer, 0, -1):
+                print(f"\033[2K{i} seconds remaining...", end='\r', flush=True)
+                time.sleep(1)
+            
+            print("\033[2KChecking domains...", end="", flush=True)
 
     else:
         print("Insert gmail_user and app_password in config.ini")
