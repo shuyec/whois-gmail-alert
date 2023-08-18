@@ -133,3 +133,9 @@ dmypy.json
 config.ini
 domains.txt
 start.bat
+
+# Whois Windows files
+Eula.txt
+whois.exe
+whois64.exe
+whois64a.exe

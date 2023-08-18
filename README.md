@@ -3,7 +3,12 @@
 Python script that sends an email to yourself when a domain in the wish list does not exist anymore (expired).
 
 ## Requirements
-* [python-whois](https://pypi.org/project/python-whois/)
+* [whoisdomain](https://pypi.org/project/whoisdomain/)
+
+## WhoIsDomain requirements
+* Please install also the command line "whois" of your distribution as this library parses the output of the "whois" cli command of your operating system.
+
+For Windows, download and extract [command line Whois](https://learn.microsoft.com/en-us/sysinternals/downloads/whois) in the project folder.
 
 ## Setup
 1. Create the text file `domains.txt` and put the wanted domains like in `domains.txt.example`

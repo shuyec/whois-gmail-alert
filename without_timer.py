@@ -1,4 +1,5 @@
-import whois, smtplib
+import whoisdomain as whois
+import smtplib
 from configparser import ConfigParser
 from email.message import EmailMessage
 
@@ -23,9 +24,8 @@ def main():
                         )
         expired_domains = []
         for domain in domains:
-            try:
-                whois.whois(domain)
-            except:
+            d = whois.query(domain)
+            if d == None:
                 expired_domains.append(domain)
                 msg_content = msg_content + f"- {domain}\n"
         if expired_domains:
