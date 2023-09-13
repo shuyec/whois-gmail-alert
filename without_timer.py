@@ -19,8 +19,8 @@ def main():
         with open("domains.txt", 'r') as file:
             domains = [stripped for line in file if (stripped := line.strip())]
 
-        msg_content = ( "https://domains.google/ \n"
-                        "Expired domains:\n\n"
+        msg_content = ( f'{config["settings"]["registrar_url"]} \n'
+                        'Expired domains:\n\n'
                         )
         expired_domains = []
         for domain in domains:

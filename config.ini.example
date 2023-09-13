@@ -4,3 +4,4 @@ app_password = your_google_app_password
 
 [settings]
 timer = 300
+registrar_url = https://porkbun.com/

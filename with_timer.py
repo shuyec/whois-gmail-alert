@@ -1,4 +1,5 @@
-import whois, smtplib, time
+import whoisdomain as whois
+import smtplib, time
 from configparser import ConfigParser
 from email.message import EmailMessage
 
@@ -21,14 +22,13 @@ def main():
             with open("domains.txt", 'r') as file:
                 domains = [stripped for line in file if (stripped := line.strip())]
 
-            msg_content = ( "https://domains.google/ \n"
-                            "Expired domains:\n\n"
+            msg_content = ( f'{config["settings"]["registrar_url"]} \n'
+                            'Expired domains:\n\n'
                             )
             expired_domains = []
             for domain in domains:
-                try:
-                    whois.whois(domain)
-                except:
+                d = whois.query(domain)
+                if d == None:
                     expired_domains.append(domain)
                     msg_content = msg_content + f"- {domain}\n"
             if expired_domains:
