@@ -132,7 +132,6 @@ dmypy.json
 **/whois_venv
 config.ini
 domains.txt
-start.bat
 
 # Whois Windows files
 Eula.txt

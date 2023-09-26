@@ -16,6 +16,7 @@ For Windows, download and extract [command line Whois](https://learn.microsoft.c
 3. Create an [app password](https://support.google.com/accounts/answer/185833?hl=en) for your Google account and copy it to `config.ini`
 
 ## Notes
-* The script `with_timer.py` is in an infinite while loop, so it needs to be stopped manually.
+* The script is set to loop through the domains once, so it needs something like Windows Task Scheduler to automatically run it multiple times.
+* `config.ini` has the option to use a timer by changing 'timer_bool' to true. This will run the script every x seconds.
 * The timer between the checks can be changed in the `config.ini` file. It is 5 minutes (300 seconds) by default.
-* The script `without_timer.py` runs it once, so it needs something like Windows 10 Task Scheduler to automatically run it multiple times.
+* To use `start.bat`, the venv must be named `whois_venv` or you can change the name in `start.bat` to your venv name.
